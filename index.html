@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mama Scan — Know What's Safe to Eat While Pregnant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3',
+              300: '#fda4af', 400: '#fb7185', 500: '#f43f5e',
+              600: '#e11d48', 700: '#be123c', 800: '#9f1239', 900: '#881337',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-hero { background: linear-gradient(135deg, #fff0f3 0%, #fce7f3 40%, #fdf2f8 100%); }
+    .gradient-pink { background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%); }
+    .gradient-soft { background: linear-gradient(180deg, #fff0f3 0%, #ffffff 100%); }
+    .phone-shadow { filter: drop-shadow(0 30px 60px rgba(244,63,94,0.25)); }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(244,63,94,0.15); }
+    .badge-safe { background: #dcfce7; color: #166534; }
+    .badge-avoid { background: #fee2e2; color: #991b1b; }
+    .badge-caution { background: #fef3c7; color: #92400e; }
+    .blob1 { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,63,94,0.12) 0%, transparent 70%); border-radius: 50%; top: -100px; right: -100px; animation: float 8s ease-in-out infinite; }
+    .blob2 { position: absolute; width: 350px; height: 350px; background: radial-gradient(circle, rgba(236,72,153,0.10) 0%, transparent 70%); border-radius: 50%; bottom: 0; left: -80px; animation: float 10s ease-in-out infinite reverse; }
+    @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px,-20px) scale(1.05); } }
+    .scan-pulse { animation: pulse-ring 2s ease-in-out infinite; }
+    @keyframes pulse-ring { 0%,100% { box-shadow: 0 0 0 0 rgba(244,63,94,0.3); } 50% { box-shadow: 0 0 0 20px rgba(244,63,94,0); } }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="font-sans text-gray-800 overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-rose-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 gradient-pink rounded-xl flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg text-gray-900">Mama Scan</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#features" class="hover:text-rose-500 transition-colors">Features</a>
+        <a href="#how-it-works" class="hover:text-rose-500 transition-colors">How It Works</a>
+        <a href="#safe-foods" class="hover:text-rose-500 transition-colors">Food Guide</a>
+      </div>
+      <a href="https://apps.apple.com/vn/app/mama-scan-ai/id6752248293" target="_blank"
+         class="gradient-pink text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-md">
+        Download Free
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="gradient-hero min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <!-- Left -->
+      <div class="text-center md:text-left">
+        <div class="inline-flex items-center gap-2 bg-rose-100 text-rose-600 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          #1 Pregnancy Food Safety App
+        </div>
+        <h1 class="text-5xl md:text-6xl font-black text-gray-900 leading-tight mb-6">
+          Eat with<br/>
+          <span class="text-transparent bg-clip-text gradient-pink">confidence</span><br/>
+          every meal
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed mb-8 max-w-lg">
+          Scan any food and know instantly if it's safe during pregnancy.
+          Powered by AI, trusted by moms-to-be worldwide.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="https://apps.apple.com/vn/app/mama-scan-ai/id6752248293" target="_blank"
+             class="gradient-pink text-white font-bold px-8 py-4 rounded-2xl hover:opacity-90 transition-all shadow-xl shadow-rose-200 flex items-center justify-center gap-3 text-lg">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download on App Store
+          </a>
+          <a href="#how-it-works"
+             class="bg-white text-gray-700 font-semibold px-8 py-4 rounded-2xl border border-gray-200 hover:border-rose-300 transition-all flex items-center justify-center gap-2 text-lg">
+            See How It Works
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </a>
+        </div>
+        <p class="text-sm text-gray-400 mt-4">Free · iOS · No subscription required</p>
+      </div>
+      <!-- Right — phone mockup -->
+      <div class="flex justify-center relative">
+        <div class="relative">
+          <!-- Phone frame -->
+          <div class="w-64 md:w-72 bg-gray-900 rounded-[3rem] p-2 phone-shadow">
+            <div class="bg-white rounded-[2.5rem] overflow-hidden">
+              <!-- Status bar -->
+              <div class="gradient-pink h-16 flex flex-col items-center justify-end pb-3">
+                <p class="text-white/80 text-xs">Welcome back,</p>
+                <p class="text-white font-bold text-sm">mama 🤱</p>
+              </div>
+              <!-- Content -->
+              <div class="p-4 space-y-3">
+                <div class="flex gap-2">
+                  <span class="bg-rose-100 text-rose-600 text-xs font-semibold px-3 py-1 rounded-full">Week 25</span>
+                  <span class="text-gray-400 text-xs py-1">105 days to go</span>
+                </div>
+                <!-- Scan card -->
+                <div class="gradient-pink rounded-2xl p-4 text-center scan-pulse">
+                  <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-2">
+                    <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 9V6a1 1 0 011-1h3M3 15v3a1 1 0 001 1h3m11-4v3a1 1 0 01-1 1h-3m4-11V6a1 1 0 00-1-1h-3"/>
+                    </svg>
+                  </div>
+                  <p class="text-white font-bold text-sm">Scan Food</p>
+                  <p class="text-white/80 text-xs">Check if it's safe for baby</p>
+                  <button class="mt-2 bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full">Tap to start →</button>
+                </div>
+                <!-- Recent scans -->
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Recent Scans</p>
+                <div class="flex items-center justify-between py-2 border-b border-gray-50">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">🥗</span>
+                    <div>
+                      <p class="text-xs font-semibold">Salad</p>
+                      <p class="text-xs text-gray-400">10:30 AM</p>
+                    </div>
+                  </div>
+                  <span class="badge-safe text-xs font-bold px-2 py-0.5 rounded-full">SAFE</span>
+                </div>
+                <div class="flex items-center justify-between py-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">🍣</span>
+                    <div>
+                      <p class="text-xs font-semibold">Sushi</p>
+                      <p class="text-xs text-gray-400">Yesterday</p>
+                    </div>
+                  </div>
+                  <span class="badge-avoid text-xs font-bold px-2 py-0.5 rounded-full">AVOID</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badges -->
+          <div class="absolute -left-16 top-20 bg-white rounded-2xl shadow-xl p-3 flex items-center gap-2 animate-bounce" style="animation-duration:3s">
+            <span class="text-2xl">✅</span>
+            <div>
+              <p class="text-xs font-bold text-gray-800">Instant Result</p>
+              <p class="text-xs text-gray-400">Scan in seconds</p>
+            </div>
+          </div>
+          <div class="absolute -right-12 bottom-28 bg-white rounded-2xl shadow-xl p-3 flex items-center gap-2" style="animation: float 4s ease-in-out infinite">
+            <span class="text-2xl">🤱</span>
+            <div>
+              <p class="text-xs font-bold text-gray-800">Mom Approved</p>
+              <p class="text-xs text-gray-400">Trusted by 10k+</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="bg-white py-10 border-y border-gray-100">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-3xl font-black text-rose-500">10k+</p>
+          <p class="text-sm text-gray-500 mt-1">Moms Using App</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-rose-500">500+</p>
+          <p class="text-sm text-gray-500 mt-1">Foods in Database</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-rose-500">4.9★</p>
+          <p class="text-sm text-gray-500 mt-1">App Store Rating</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-rose-500">AI</p>
+          <p class="text-sm text-gray-500 mt-1">Powered Safety</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-rose-500 font-semibold text-sm uppercase tracking-widest">Why Mama Scan</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-3">Everything you need<br/>for a safe pregnancy</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-hover bg-rose-50 rounded-3xl p-8 fade-up">
+          <div class="w-14 h-14 gradient-pink rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 9V6a1 1 0 011-1h3M3 15v3a1 1 0 001 1h3m11-4v3a1 1 0 01-1 1h-3m4-11V6a1 1 0 00-1-1h-3"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Instant Food Scan</h3>
+          <p class="text-gray-600 leading-relaxed">Point your camera at any food and get an instant safety verdict — SAFE, LIMIT, or AVOID — in seconds.</p>
+        </div>
+        <div class="card-hover bg-pink-50 rounded-3xl p-8 fade-up" style="transition-delay:0.1s">
+          <div class="w-14 h-14 gradient-pink rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">AI-Powered Safety</h3>
+          <p class="text-gray-600 leading-relaxed">Our AI analyzes ingredients against the latest pregnancy safety guidelines so you always have accurate, up-to-date information.</p>
+        </div>
+        <div class="card-hover bg-fuchsia-50 rounded-3xl p-8 fade-up" style="transition-delay:0.2s">
+          <div class="w-14 h-14 gradient-pink rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Scan History</h3>
+          <p class="text-gray-600 leading-relaxed">Track every food you've scanned throughout your pregnancy journey. Build your personal safe food list over time.</p>
+        </div>
+        <div class="card-hover bg-rose-50 rounded-3xl p-8 fade-up">
+          <div class="w-14 h-14 gradient-pink rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Why It's Unsafe</h3>
+          <p class="text-gray-600 leading-relaxed">Get clear explanations — not just a verdict. Know exactly why a food should be avoided and what safer alternatives exist.</p>
+        </div>
+        <div class="card-hover bg-pink-50 rounded-3xl p-8 fade-up" style="transition-delay:0.1s">
+          <div class="w-14 h-14 gradient-pink rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Pregnancy Tracker</h3>
+          <p class="text-gray-600 leading-relaxed">Track your weeks and days remaining. Stay on top of what changes in your diet as your pregnancy progresses week by week.</p>
+        </div>
+        <div class="card-hover bg-fuchsia-50 rounded-3xl p-8 fade-up" style="transition-delay:0.2s">
+          <div class="w-14 h-14 gradient-pink rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">100% Free</h3>
+          <p class="text-gray-600 leading-relaxed">No subscription. No hidden fees. Download and use Mama Scan completely free — because your baby's safety shouldn't cost extra.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="py-24 gradient-soft">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-rose-500 font-semibold text-sm uppercase tracking-widest">Simple & Fast</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-3">Know in 3 seconds</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="hidden md:block absolute top-16 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-rose-200 to-rose-200"></div>
+        <div class="text-center fade-up">
+          <div class="w-20 h-20 gradient-pink rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-rose-200">
+            <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 9V6a1 1 0 011-1h3M3 15v3a1 1 0 001 1h3m11-4v3a1 1 0 01-1 1h-3m4-11V6a1 1 0 00-1-1h-3"/>
+            </svg>
+          </div>
+          <div class="w-8 h-8 bg-rose-100 text-rose-500 font-black rounded-full flex items-center justify-center mx-auto mb-4 text-sm">1</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Open & Scan</h3>
+          <p class="text-gray-500">Open the app and point your camera at any food, ingredient, or menu item.</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:0.15s">
+          <div class="w-20 h-20 gradient-pink rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-rose-200">
+            <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <div class="w-8 h-8 bg-rose-100 text-rose-500 font-black rounded-full flex items-center justify-center mx-auto mb-4 text-sm">2</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">AI Analyzes</h3>
+          <p class="text-gray-500">Our AI instantly checks the food against pregnancy safety guidelines and research.</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:0.3s">
+          <div class="w-20 h-20 gradient-pink rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-rose-200">
+            <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="w-8 h-8 bg-rose-100 text-rose-500 font-black rounded-full flex items-center justify-center mx-auto mb-4 text-sm">3</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Get Your Answer</h3>
+          <p class="text-gray-500">Receive a clear verdict with explanation and safe alternatives if needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD GUIDE EXAMPLES -->
+  <section id="safe-foods" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-rose-500 font-semibold text-sm uppercase tracking-widest">Quick Reference</span>
+        <h2 class="text-4xl font-black text-gray-900 mt-3">Common foods — instantly know</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 fade-up">
+        <div class="bg-green-50 rounded-2xl p-4 flex items-center gap-3">
+          <span class="text-3xl">🥑</span>
+          <div><p class="font-bold text-sm text-gray-800">Avocado</p><span class="badge-safe text-xs font-bold px-2 py-0.5 rounded-full">SAFE</span></div>
+        </div>
+        <div class="bg-red-50 rounded-2xl p-4 flex items-center gap-3">
+          <span class="text-3xl">🍣</span>
+          <div><p class="font-bold text-sm text-gray-800">Raw Sushi</p><span class="badge-avoid text-xs font-bold px-2 py-0.5 rounded-full">AVOID</span></div>
+        </div>
+        <div class="bg-yellow-50 rounded-2xl p-4 flex items-center gap-3">
+          <span class="text-3xl">☕</span>
+          <div><p class="font-bold text-sm text-gray-800">Coffee</p><span class="badge-caution text-xs font-bold px-2 py-0.5 rounded-full">LIMIT</span></div>
+        </div>
+        <div class="bg-green-50 rounded-2xl p-4 flex items-center gap-3">
+          <span class="text-3xl">🫐</span>
+          <div><p class="font-bold text-sm text-gray-800">Blueberries</p><span class="badge-safe text-xs font-bold px-2 py-0.5 rounded-full">SAFE</span></div>
+        </div>
+        <div class="bg-red-50 rounded-2xl p-4 flex items-center gap-3">
+          <span class="text-3xl">🥃</span>
+          <div><p class="font-bold text-sm text-gray-800">Alcohol</p><span class="badge-avoid text-xs font-bold px-2 py-0.5 rounded-full">AVOID</span></div>
+        </div>
+        <div class="bg-green-50 rounded-2xl p-4 flex items-center gap-3">
+          <span class="text-3xl">🥕</span>
+          <div><p class="font-bold text-sm text-gray-800">Carrots</p><span class="badge-safe text-xs font-bold px-2 py-0.5 rounded-full">SAFE</span></div>
+        </div>
+      </div>
+      <p class="text-center text-gray-400 text-sm mt-6">500+ foods in our database. Scan anything for an instant result.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-24 gradient-hero">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12 fade-up">
+        <h2 class="text-4xl font-black text-gray-900">Loved by mamas everywhere</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-3xl p-6 shadow-sm fade-up">
+          <div class="flex mb-4">★★★★★</div>
+          <p class="text-gray-600 leading-relaxed mb-4">"This app is a lifesaver! I used to spend 20 minutes googling every food at restaurants. Now I just scan and know instantly."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-pink rounded-full flex items-center justify-center text-white font-bold">S</div>
+            <div><p class="font-semibold text-sm">Sarah M.</p><p class="text-xs text-gray-400">Week 32 📍 California</p></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl p-6 shadow-sm fade-up" style="transition-delay:0.1s">
+          <div class="flex mb-4">★★★★★</div>
+          <p class="text-gray-600 leading-relaxed mb-4">"Finally an app that gives me peace of mind at every meal. The explanations are clear and it even suggests safe alternatives!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-pink rounded-full flex items-center justify-center text-white font-bold">A</div>
+            <div><p class="font-semibold text-sm">Amanda L.</p><p class="text-xs text-gray-400">Week 18 📍 New York</p></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl p-6 shadow-sm fade-up" style="transition-delay:0.2s">
+          <div class="flex mb-4">★★★★★</div>
+          <p class="text-gray-600 leading-relaxed mb-4">"My husband uses it too when he cooks for me! So simple — just point and scan. Can't imagine pregnancy without it."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-pink rounded-full flex items-center justify-center text-white font-bold">J</div>
+            <div><p class="font-semibold text-sm">Jessica T.</p><p class="text-xs text-gray-400">Week 27 📍 Texas</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="gradient-pink py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Start eating with confidence today</h2>
+      <p class="text-white/80 text-xl mb-10">Free download. No subscription. Just peace of mind for you and your baby.</p>
+      <a href="https://apps.apple.com/vn/app/mama-scan-ai/id6752248293" target="_blank"
+         class="inline-flex items-center gap-3 bg-white text-rose-500 font-bold px-10 py-5 rounded-2xl hover:bg-rose-50 transition-all shadow-2xl text-xl">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Download Free on App Store
+      </a>
+      <p class="text-white/60 text-sm mt-4">Available on iOS · Trusted by 10,000+ moms</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 gradient-pink rounded-xl flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <span class="text-white font-bold">Mama Scan</span>
+      </div>
+      <p class="text-gray-500 text-sm">© 2025 Mama Scan. Made with ❤️ for mamas everywhere.</p>
+      <a href="https://apps.apple.com/vn/app/mama-scan-ai/id6752248293" target="_blank"
+         class="text-rose-400 text-sm font-semibold hover:text-rose-300 transition-colors">
+        Download on App Store →
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
